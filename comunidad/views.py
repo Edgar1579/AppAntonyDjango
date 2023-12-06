@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from comunidad.forms import UsuarioForm,UsuarioEditarForm
 from comunidad.models import Usuario
+from django.contrib import messages
 from PIL import Image
 # Create your views here.
 def usuario_crear(request):
@@ -16,11 +17,11 @@ def usuario_crear(request):
                 img= img.resize((500,500))
                 img.save(usuario.imagen.path)
             usuario.save()
-            ## agregar el mensaje de exito
+            messages.success(request, f'¡El Usuario se agregó de forma exitosa!')
             return redirect("usuarios")
         else:
-            ## agregar mensaje de error
-            pass
+            messages.success(request, f'¡Error al agregar al Usuario!')
+            
     else:
         form=UsuarioForm()
     context={
@@ -34,7 +35,8 @@ def usuario_editar(request,pk):
     usuario= Usuario.objects.get(id=pk)
     usuarios= Usuario.objects.all()
     accion="Editar"
-    titulo=f"Usuario {usuario.id} {usuario.primer_nombre} {usuario.primer_apellido}"
+    nombre=f"{usuario.primer_nombre} {usuario.primer_apellido}"
+    titulo=f"Usuario {usuario.id} {nombre}"
 
     if request.method=="POST":
         form= UsuarioEditarForm(request.POST,request.FILES, instance=usuario)
@@ -45,11 +47,11 @@ def usuario_editar(request,pk):
                 img= img.resize((500,500))
                 img.save(usuario.imagen.path)
             usuario.save()
-            ## agregar el mensaje de exito
+            messages.success(request, f'¡{nombre} se editó de forma exitosa!')            
             return redirect("usuarios")
         else:
-            ## agregar mensaje de error
-            pass
+            messages.error(request, f'¡Error al editar a {nombre}!')    
+
     else:
         form=UsuarioEditarForm(instance=usuario)
     context={

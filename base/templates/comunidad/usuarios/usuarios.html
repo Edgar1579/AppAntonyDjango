@@ -4,16 +4,17 @@
 
 {% block contenido %}
   <div class="container-fluid m-4 row">
-    <div class="rounded card p-3 col-md-3">
-      <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input class="btn btn-success" type="submit" value="{{ accion }} {{ titulo }}" />
-        <a href="{% url 'usuarios' %}" class="btn btn-danger">Cancelar</a>
-      </form>
-    </div>
+      <div class="rounded card p-3 col-md-3">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <input class="btn btn-success" type="submit" value="{{ accion }} {{ titulo }}" />
+          <a href="{% url 'usuarios' %}" class="btn btn-danger">Cancelar</a>
+        </form>
+      </div>
+
     <div class="rounded card p-3 mx-4 col-md-8">      
-      <table class="table table-bordered w-100 display nowrap" id="lista-tabla">
+      <table class="table table-bordered w-100 display nowrap" id="tabla-usuarios">
         <thead>
           <tr>
             <th>Imagen</th>
@@ -44,7 +45,8 @@
                 <td>{{ usuario.get_tipo_documento_display }}</td>
                 <td>{{ usuario.documento }}</td>
                 <td>
-                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ usuario.id }}">{% bs_icon 'trash' %}</button>
+                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ usuario.id }}" title="eliminar">{% bs_icon 'trash' %}</button>
+
                   <!-- Modal -->
                   <div class="modal fade" id="staticBackdrop{{ usuario.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -61,7 +63,8 @@
                       </div>
                     </div>
                   </div>
-                  <a href="{% url 'usuario-editar' usuario.id %}" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">{% bs_icon 'pencil' %}</a>
+                  <a href="{% url 'usuario-editar' usuario.id %}" class="btn btn-primary"
+                   data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">{% bs_icon 'pencil' %}</a>
                 </td>
               </tr>
             {% endif %}

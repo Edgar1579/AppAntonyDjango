@@ -1,0 +1,14 @@
+<script>
+    $(document).ready(function () {
+        $('#tabla-usuarios').DataTable({
+            
+            "responsive": true,
+            /*columnDefs:[
+        {responsivePriority: 3, tergets: 2 }, //tercera columna
+        {responsivePriority: 2, tergets: 3}, //cuarta columna
+        {responsivePriority: 3, tergets: 9} //cuarta columna
+        ],*/
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#lista-tabla_wrapper .col-md-6:eq(0)');
+});
+</script>

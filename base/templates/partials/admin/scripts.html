@@ -1,16 +1,21 @@
 {% load static %}
-
 <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
-<script src="{% static 'js/adminlte/adminlte.js' %}"></script>
+<script src="{% static 'js/adminlte/adminlte.js' %}"></script> 
+
+<!- para las tablas ->
 <script src="{% static 'DataTables/datatables.min.js' %}"></script>
+{% include 'partials/admin/datatables.html' %}
 
-
+<!- para las alertas ->
+<script src="{% static 'Toastr/js/toastr.min.js' %}"></script>
+{% if messages %}
+{% for message in messages %}
 <script>
-$(document).ready(function () {
-    $('#lista-tabla').DataTable({
-        "responsive": true,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#lista-tabla_wrapper .col-md-6:eq(0)');
-
-});
+    toastr.{{ message.tags }}('{{ message|safe }}', '', {
+        closeButton: true,
+        progressBar: true,
+        positionClass: 'toast-top-right'
+    });
 </script>
+    {% endfor %}
+    {% endif %}
