@@ -5,7 +5,7 @@ class UsuarioForm(ModelForm):
     class Meta:
         model = Usuario
         fields = "__all__"
-        exclude =["estado",]
+        exclude =["estado","user"]
         widgets={
             'fecha_nacimiento':widgets.DateInput(attrs={'type':'date'}, format='%Y-%m-%d')
         }

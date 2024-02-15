@@ -52,42 +52,9 @@
     <div class="container marketing">
   
       <div class="row">
-        <div class="col-lg-4">
-            <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-            src="{% static 'img/salacomedor.jpeg' %}" role="img" aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-            
-            <h2>Sala</h2>
-            <p>
-                Los muebles de líneas limpias y texturas suaves crean un ambiente acogedor y relajante. Grandes ventanales permiten la entrada de luz natural y ofrecen vistas al jardín.
-            </p>
-            <p><a class="btn btn-secondary" href="#">Ver detalles »</a></p>
-        </div>
-        <div class="col-lg-4">
-            <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-            src="{% static 'img/cama.jpeg' %}" role="img" aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-            
-            <h2>Alcoba</h2>
-            <p>
-                La alcoba es un oasis de tranquilidad y confort. Optamos por una paleta de colores suaves y serenos, como tonos suaves de gris y beige, que promueven la relajación.
-            </p>
-            <p><a class="btn btn-secondary" href="#">Ver detalles »</a></p>
-        </div>
-        <div class="col-lg-4">
-            <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-            src="{% static 'img/tina vista.jpeg' %}" role="img" aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-
-            <h2>Baños</h2>
-            <p>
-                Nuestro diseño de interiores para el baño es una celebración de la simplicidad y la elegancia. Utilizamos azulejos de mármol blanco en las paredes y el suelo, creando una sensación de luminosidad y amplitud.
-            </p>
-            <p><a class="btn btn-secondary" href="#">Ver detalles »</a></p>
-        </div>
+      {% for producto in productos %}
+        {% include 'operaciones/productos/card.html' %}
+      {% endfor %}
     </div>
 
     <hr class="featurette-divider" />
