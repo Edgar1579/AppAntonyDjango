@@ -3,21 +3,23 @@
 <script src="{% static 'js/adminlte/adminlte.js' %}"></script> 
 
 <!- para las tablas ->
-<script src="{% static "DataTables/DateTime/jquery-3.7.0.js" %}"></script>
+<script src="{% static 'DataTables/DateTime/jquery-3.7.0.js' %}"></script>
 <script src="{% static 'DataTables/datatables.min.js' %}"></script>
 {% include "partials/admin/datatables.html" %}
 
 <!- para las alertas ->
-<script src="{% static "Toastr/js/toastr.min.js" %}"></script>
+<script src="{% static 'Toastr/js/toastr.min.js' %}"></script>
 {% if messages %}
 {% for message in messages %}
 <script>
-    toastr[message.tags](message, '', {
-      closeButton: true, 
+  // In your Javascript (external .js resource or <script> tag)
+  
+  toastr.{{ message.tags }}('{{ message|safe }}', '', {
+      closeButton: true,
       progressBar: true,
       positionClass: 'toast-top-right'
-    });
-  </script>
+  });
+</script>
 
     {% endfor %}
     {% endif %}

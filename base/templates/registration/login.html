@@ -3,7 +3,7 @@
 {% load bootstrap_icons %}
 {% block contenido %}
 <div class="d-flex flex-column justify-content-center align-items-center w-250 mx-auto vh-600" style="background-image: url('{% static 'img/hamaca.jpeg' %}'); background-size: cover; background-position: center center;">
-  <div class="d-flex flex-column justify-content-center align-items-center w-25 mx-auto vh-100">
+<div class="d-flex flex-column justify-content-center align-items-center w-25 mx-auto vh-100">
   <div class="card-header text-center">
     <a href="{% url 'index' %}" class="h1">
       <img src="{% static 'img/Logo  WA.png' %}" width="100" style="opacity: .8">
@@ -11,7 +11,7 @@
   </div>
   <div class="card card-outline card-primary">
     <div class="card-body p-4">
-      <p class="login-box-msg h5">Bienvenido a Whithe Atelier Design</p>
+      <p class="login-box-msg h6">Bienvenido a Whithe Atelier Desing  (Acabados y Remodelaciones W)</p>
       <form method="post">
         {% csrf_token %}
         <div class="input-group mb-3">
@@ -39,11 +39,11 @@
         </div>
       </form>
       <p class="mb-1">
-       {% comment " <a href="{% url 'pass_reset' %}">Olvidé mi contraseña</a>" %}{% endcomment %}
+    <a href="{% url 'pass_reset' %}">Olvidé mi contraseña</a>
       </p>
     </div>
   </div>
 </div>
 </div>
 
-{% endblock %}
+{% endblock contenido %}

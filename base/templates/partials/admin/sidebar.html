@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap_icons %}
 
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -51,9 +52,9 @@
                   <p>Usuarios</p>
                 </a>
                 <li class="nav-item">
-                  <a href="" class="nav-link" data-url="">
+                  <a href="{% url 'tiendas' %}" class="nav-link" data-url="">
                     <i class="bi bi-person-lines-fill nav-icon"></i>
-                    <p>Fichas</p>
+                    <p>Tiendas</p>
                   </a>
                 </li>
                 <li class="nav-item">

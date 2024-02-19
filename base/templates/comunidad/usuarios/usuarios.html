@@ -4,6 +4,7 @@
 
 {% block contenido %}
   <div class="container-fluid m-4 row">
+    {% if perms.comunidad.add_usuario %}
       <div class="rounded card p-3 col-md-3">
         <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
@@ -12,8 +13,9 @@
           <a href="{% url 'usuarios' %}" class="btn btn-danger">Cancelar</a>
         </form>
       </div>
-
-    <div class="rounded card p-3 mx-4 col-md-8">      
+      {% endif %}
+    <div class="rounded card p-3 mx-4 col-md-8">
+      <a href="{% url 'create_group' %}" class="btn btn-warning w-25">Roles</a>  
       <table class="table table-bordered w-100 display nowrap" id="tabla-usuarios">
         <thead>
           <tr>
@@ -26,7 +28,9 @@
             <th>Rol</th>
             <th>Tipo de Documento</th>
             <th>Documento</th>
+            {% if perms.comunidad.change_usuario %}
             <th>Accion</th>
+            {% endif %}
           </tr>
         </thead>
         <tbody>
@@ -41,12 +45,13 @@
                 <td>{{ usuario.primer_apellido }}</td>
                 <td>{{ usuario.segundo_apellido }}</td>
                 <td>{{ usuario.fecha_nacimiento }}</td>
-                <td>{{ usuario.get_rol_display }}</td>
+                <td>{{ usuario.user.groups.first }}</td>
                 <td>{{ usuario.get_tipo_documento_display }}</td>
                 <td>{{ usuario.documento }}</td>
+                {% if perms.comunidad.change_usuario %}
                 <td>
-                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ usuario.id }}" title="eliminar">{% bs_icon 'trash' %}</button>
 
+                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ usuario.id }}" title="eliminar">{% bs_icon 'trash' %}</button>
                   <!-- Modal -->
                   <div class="modal fade" id="staticBackdrop{{ usuario.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -64,8 +69,10 @@
                     </div>
                   </div>
                   <a href="{% url 'usuario-editar' usuario.id %}" class="btn btn-primary"
-                   data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">{% bs_icon 'pencil' %}</a>
+                  data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">{% bs_icon 'pencil' %}</a>
                 </td>
+                {% endif %}
+
               </tr>
             {% endif %}
           {% endfor %}

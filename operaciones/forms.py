@@ -13,4 +13,5 @@ class ProductoEditarForm(ModelForm):
         model= Producto
         fields= "__all__"
         exclude=["estado"]
-       
+
+

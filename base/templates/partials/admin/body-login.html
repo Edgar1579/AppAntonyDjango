@@ -2,21 +2,29 @@
 {% load django_bootstrap5 %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% bootstrap_css %}
     {% bootstrap_javascript %}
+    <link rel="shortcut icon" href="{% static 'img/Logo  WA.png' %}" type="image/x-icon">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <title>White Atelier Design - Login</title>
 
     
 
 </head>
-<body>
+<body class="login-page beige" >
     <div class="login-box ">
         {% block contenido %}
-        {% endblock %}
+        {% endblock contenido %}
+
+        <!-- jQuery -->
+  <script src="{% static 'js/jquery/jQuery.min.js' %}"></script>
+
+  <!-- AdminLTE App -->
+  <script src="{% static 'js/adminlte/adminlte.js' %}"></script>
       </div>
 </body>
 </html>

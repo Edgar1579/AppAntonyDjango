@@ -6,7 +6,6 @@ def get_image_filename(instance, filename):
     ext = filename.split('.')[-1]
     filename = f"{instance.documento}.{ext}"
     return f"comunidad/usuarios/{filename}"
-
 # Create your models here.
 class Usuario(models.Model):
     primer_nombre= models.CharField(max_length=45,verbose_name="Primer Nombre")
@@ -16,15 +15,9 @@ class Usuario(models.Model):
     segundo_apellido= models.CharField(max_length=45,verbose_name="Segundo Apellido")
     
     fecha_nacimiento= models.DateField(verbose_name="Fecha de Nacimiento")
-    imagen = models.ImageField(upload_to=get_image_filename, blank=True, null=True,default="comunidad/default-user.jpg")
+    imagen = models.ImageField(upload_to=get_image_filename, blank=True, null=True,default="comunidad\default-user.jpeg")
     correo = models.EmailField(max_length=50, verbose_name="Correo")
-
-
-    class Rol(models.TextChoices):
-        ADMINISTRADOR="AD",_("Administrador")
-        CLIENTES="CL",_("Cliente")
-        TENDEROS="TE",_("Tendero")
-    rol=models.CharField(max_length=2,choices=Rol.choices,default=Rol.CLIENTES,verbose_name="Rol")
+    
     class TipoDocumento(models.TextChoices):
         CEDULA='CC',_("Cédula")
         TARJETA='TI',_("Tarjeta de Identidad")
@@ -50,6 +43,7 @@ class Usuario(models.Model):
             return Usuario.objects.filter(usuario=self, estado=True)
         else:
             return Usuario.objects.none()
+
 class Tienda(models.Model):
     nombre= models.CharField(max_length=45,verbose_name="Nombre")
     nit= models.PositiveIntegerField(verbose_name="NIT", unique=True)
