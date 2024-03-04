@@ -9,8 +9,17 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
     
-    <!- para las tablas ->
+    <!--para las tablas -->
     <link href="{% static 'DataTables/datatables.min.css' %}" rel="stylesheet">
+    <link href="{% static 'DataTables/DateTime/dataTables.dateTime.min.css' %}" rel="stylesheet">
+    <link href="{% static 'DataTables/DateTime/jquery.dataTables.min.css' %}" rel="stylesheet"> 
+    <link href="{% static 'DataTables/Responsive-2.5.0/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+
+
+
+    <!-- para las alertas -->
+    <link href="{% static 'Toastr/css/toastr.min.css' %}" rel="stylesheet">
+
     <!- para las alertas ->
     <link href="{% static 'Toastr/css/toastr.min.css' %}" rel="stylesheet">
 
@@ -19,7 +28,9 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     
-    <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+    <!-- para Select2 -->
+    <link href="{% static 'Select2/select2.css' %}" rel="stylesheet">
+
     <link rel="shortcut icon" href="{% static 'img/Logo  WA.png' %}"
     type="image/x-icon">
     
@@ -28,8 +39,8 @@
 layout-navbar-fixed layout-footer-fixed">
 {% include 'partials/admin/header.html' %}
 {% include 'partials/admin/sidebar.html' %}
-     <!-- Content Wrapper. Contains page content -->
-     <div class="content-wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">

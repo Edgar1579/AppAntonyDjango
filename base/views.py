@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect
-from configuracion.models import Slider
+
 from operaciones.models import Producto
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from comunidad.models import Usuario, Tienda
+from configuracion.models import Slider
 
 def principal(request):
     titulo="Bienvenido"
@@ -19,11 +20,15 @@ def principal(request):
 def principal_admin(request):
     titulo="Bienvenido"
     usuarios = Usuario.objects.all().count()
+    usuarios_obj = Usuario.objects.all().count()
+    
     context={
         "titulo": titulo,
-        "usuarios_cantidad": usuarios
+        "usuarios_cantidad": usuarios,
+        "usuarios_obj": usuarios_obj
     }
     return render(request, "index-admin.html", context)
+
 def logout_user(request):
     logout(request)
     return redirect('index')

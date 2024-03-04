@@ -31,18 +31,18 @@
       <!-- Navbar Search -->
       <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
+          {% bs_icon 'search' %}</i>
         </a>
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar" type="buscar" placeholder="Buscar" aria-label="Buscar">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
-                  <i class="bi bi-search"></i>
+                  {% bs_icon 'search' %}
                 </button>
                 <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
+                  {% comment %} {% bs_icon 'time' %} {% endcomment %}                
                 </button>
               </div>
             </div>
@@ -53,7 +53,7 @@
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="bi bi-chat-heart"></i>
+          {% bs_icon 'heart' %}
           
           <span class="badge badge-danger navbar-badge">3</span>
         </a>
@@ -65,10 +65,10 @@
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                  <span class="float-right text-sm text-danger">{% bs_icon 'star' %}</i></span>
                 </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                <p class="text-sm">Pedido pendiente...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> Hace 4 horas</p>
               </div>
             </div>
             <!-- Message End -->

@@ -3,7 +3,6 @@
 {% load bootstrap_icons %}
 {% load static %}
 
-
   <!-- Info boxes -->
   <div class="row">
     <div class="col-12 col-sm-6 col-md-3">
@@ -22,11 +21,12 @@
     <!-- /.col -->
     <div class="col-12 col-sm-6 col-md-3">
       <div class="info-box mb-3">
-        <span class="info-box-icon bg-danger elevation-1"><i class="bi bi-emoji-angry-fill"></i></span>
+        <span class="info-box-icon bg-danger elevation-1">{% bs_icon 'shop' size='1.5em'%}</i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Llamados de Atención</span>
-          <span class="info-box-number">{{llamados}}</span>
+            
+          <span class="info-box-text">Agenda</span>
+          <span class="info-box-number">{{tiendas_cantidad}}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -36,11 +36,11 @@
 
     <div class="col-12 col-sm-6 col-md-3">
       <div class="info-box mb-3">
-        <span class="info-box-icon bg-success elevation-1"><i class="bi bi-people-fill"></i></span>
+        <span class="info-box-icon bg-success elevation-1">{% bs_icon 'box-seam-fill' size='1.5em'%}</i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Fichas</span>
-          <span class="info-box-number">{{ fichas }}</span>
+          <span class="info-box-text">Productos</span>
+          <span class="info-box-number">{{ productos_cantidad }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -49,11 +49,11 @@
     <!-- /.col -->
     <div class="col-12 col-sm-6 col-md-3">
       <div class="info-box mb-3">
-        <span class="info-box-icon bg-warning elevation-1"><i class="bi bi-radioactive"></i></span>
+        <span class="info-box-icon bg-warning elevation-1">{% bs_icon 'basket-fill' size='1.5em'%}</i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Instructores</span>
-          <span class="info-box-number">{{instructores}}</span>
+          <span class="info-box-text">Pedidos</span>
+          <span class="info-box-number">{{pedidos_cantidad}}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -62,5 +62,16 @@
     <!-- /.col -->
   </div>
   <!-- /.row -->
-  
+ <div class="card w-50 mx-auto p-4">
+  <div class="h3">Citas Programadas</div>
+  <canvas id="chart-Usuarios"></canvas>
+</div>
+</div>
+
+<script src="{% static 'ChartJS/chart.js' %}"></script>
+<script> src="https://cdn.jsdelivr.net/npm/chart.js"</script>
+<script src="{% static 'ChartJS/MyCharts/chart-usuarios.js' %}"></script>
+
+{% include 'partials/charts/chart-Productos.html' %}
+
 {% endblock %}

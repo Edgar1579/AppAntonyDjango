@@ -46,9 +46,9 @@ def usuario_crear(request):
             )
             messages.success(request, f'¡El Usuario se agregó de forma exitosa!')
             if usuario.imagen:
-                 img = Image.open(usuario.imagen.path)
-                 img= img.resize((500,500))
-                 img.save(usuario.imagen.path)
+                img = Image.open(usuario.imagen.path)
+                img= img.resize((500,500))
+                img.save(usuario.imagen.path)
             usuario.save()
             return redirect('usuarios')
 

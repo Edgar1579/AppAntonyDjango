@@ -7,18 +7,30 @@
 <script src="{% static 'DataTables/datatables.min.js' %}"></script>
 {% include "partials/admin/datatables.html" %}
 
+<script type="text/javascript" src="{% static 'Select2/select2.min.js' %}"></script>
+
+
 <!- para las alertas ->
 <script src="{% static 'Toastr/js/toastr.min.js' %}"></script>
+
+<script src="{% static 'ChartJS/chart.js' %}"></script>
+
+<script>
+  $(document).ready(function() {
+      $('.select').select2();
+  });
+</script>
+
 {% if messages %}
 {% for message in messages %}
 <script>
   // In your Javascript (external .js resource or <script> tag)
   
-  toastr.{{ message.tags }}('{{ message|safe }}', '', {
-      closeButton: true,
-      progressBar: true,
-      positionClass: 'toast-top-right'
-  });
+    toastr.{{ message.tags }}('{{ message|safe }}', '', {
+        closeButton: true,
+        progressBar: true,
+        positionClass: 'toast-top-right'
+    });
 </script>
 
     {% endfor %}

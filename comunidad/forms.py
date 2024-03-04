@@ -5,6 +5,8 @@ from django.contrib.auth.models import Group, Permission
 from django.contrib.admin.widgets import FilteredSelectMultiple 
 
 
+
+
 class UsuarioForm(ModelForm):
     rol= ModelChoiceField(
         queryset=Group.objects.all(),
@@ -52,4 +54,4 @@ class TiendaEditarForm(ModelForm):
     class Meta:
         model= Tienda
         fields= "__all__"
-        exclude=["estado",]      
+        exclude=["estado",]
