@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'django_bootstrap5',#pip install django-bootstrap5
     'crispy_forms', #pip install django-crispy-forms 
     'django_bootstrap_icons',#pip install django-bootstrap-icons
-    'crispy_bootstrap5' #pip install crispy-bootstrap5
-
+    'crispy_bootstrap5', #pip install crispy-bootstrap5
+    'django_select2', #pip install django-select2
+    'django_redis',
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS= "bootstrap5"
 CRISPY_TEMPLATE_PACK= "bootstrap5"
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
     }
 }
 

@@ -3,8 +3,14 @@ from django.forms import ModelChoiceField, ModelForm, widgets
 from comunidad.models import Usuario, Tienda
 from django.contrib.auth.models import Group, Permission
 from django.contrib.admin.widgets import FilteredSelectMultiple 
-
-
+from django_select2 import forms as s2forms
+class UsuarioWidget(s2forms.ModelSelect2Widget):
+    search_fields = [
+        "primer_nombre__icontains",
+        "primer_apellido__icontains"
+        "correo__icontains",
+        "documento__icontains",
+    ]
 
 
 class UsuarioForm(ModelForm):
@@ -19,17 +25,15 @@ class UsuarioForm(ModelForm):
         widgets={
             'fecha_nacimiento':widgets.DateInput(attrs={'type':'date'},format='%Y-%m-%d')
         }
-
 class UsuarioEditarForm(ModelForm):
     rol= ModelChoiceField(
-        queryset=Group.objects.all(), 
+        queryset=Group.objects.all(),
         label="Rol",
     )
     class Meta:
         model= Usuario
         fields= "__all__"
         exclude=["estado","fecha_nacimiento", "documento","user"]
-
 class GroupForm(ModelForm):
     permissions = forms.ModelMultipleChoiceField(
         queryset=Permission.objects.all(),
@@ -39,17 +43,14 @@ class GroupForm(ModelForm):
     class Meta:
         model = Group
         fields = ['name','permissions']     
-
-
 class TiendaForm(ModelForm):
     class Meta:
         model= Tienda
         fields= "__all__"
         exclude=["estado",]
-        # widgets = {
-        # "usuario": UsuarioWidget,
-        # }
-
+        widgets = {
+        "usuario": UsuarioWidget,
+        }
 class TiendaEditarForm(ModelForm):
     class Meta:
         model= Tienda
