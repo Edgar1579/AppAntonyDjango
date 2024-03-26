@@ -4,6 +4,8 @@ from comunidad.models import Usuario, Tienda
 from django.contrib.auth.models import Group, Permission
 from django.contrib.admin.widgets import FilteredSelectMultiple 
 from django_select2 import forms as s2forms
+
+
 class UsuarioWidget(s2forms.ModelSelect2Widget):
     search_fields = [
         "primer_nombre__icontains",
@@ -42,7 +44,8 @@ class GroupForm(ModelForm):
     )
     class Meta:
         model = Group
-        fields = ['name','permissions']     
+        fields = ['name','permissions'] 
+            
 class TiendaForm(ModelForm):
     class Meta:
         model= Tienda

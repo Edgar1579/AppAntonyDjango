@@ -1,0 +1,41 @@
+.logo {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+  }
+  
+.footer a {
+    color: blue;
+    text-decoration: none; /* Elimina el subrayado */
+    transition: color 0.3s;
+  }
+  
+.footer a:hover {
+    color: #ccc;
+  }
+  
+.footer sup {
+    font-size: 0.6em;
+    vertical-align: top;
+  }
+.footer a:hover i {
+    color: #fff; /* Cambiar al color que prefieras */
+  }
+
+.facebook-icon {
+    color: #3b5998;
+  }
+  
+  .twitter-icon {
+    color: #1da1f2;
+  }
+  
+  .instagram-icon {
+    color: #e1306c;
+  }
+  
+  .whatsapp-icon {
+    color: #25d366;
+  }
+
+

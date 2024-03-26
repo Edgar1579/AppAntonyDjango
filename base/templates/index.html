@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block contenido %}
-<main>
+<main class="overflow-hidden">
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -12,22 +12,27 @@
         <div class="carousel-inner">
 
           <div class="carousel-item active ">
-            <img src="{% static 'img/Cocina Azul.jpeg' %}" class="d-block w-100" alt="">
+            <img src="static\img\escritorio.jpeg" class="d-block w-100" alt="">
             <div class="carousel-caption d-none d-md-block">
               <h5>Bienvenido</h5>
             </div>
           </div>
-      
-          {% for slider in sliders %}
           <div class="carousel-item">
-            <img src="{{ slider.imagen.url }}" class="d-block w-100" alt="">
+            <img src="static\img\hamaca.jpeg" class="d-block w-100" alt="">
             <div class="carousel-caption d-none d-md-block">
-              <h5>{{slider.nombre}}</h5>
-              <p>{{slider.descripcion}}</p>
-             <!--<p><a class="btn btn-lg btn-primary" href="{{slider.url}}"></a></p>--> 
+              <h5 style="color: #000000;">Pequeño paraíso.</h5>
+              <p style="color: #000000;">Un espacio diseñado para relajarse y desconectar de la rutina.</p>
             </div>
           </div>
-        {% endfor %}
+          <div class="carousel-item">
+            <img src="static\img\mesadecocina.jpeg" class="d-block w-100" alt="">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Perfección funcionalidad y estética</h5>
+              <p>Atmósfera acogedora que resalta los detalles arquitectónicos.</p>
+            </div>
+          </div>
+          
+          
           
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -92,10 +97,10 @@
             </h2>
             <p class="lead">
                 Reinventamos ambientes aplicando conceptos de diseño sostenible,
-                 aprovechando materiales reciclados y amigables con el medio ambiente.
-                 Realizamos remodelaciones integrales con visión funcional, estética y ecológica. 
-                 Proponemos soluciones como: aprovechamiento de luz natural,
-                 sistemas de ahorro de energía, materiales no tóxicos, entre otros.
+                aprovechando materiales reciclados y amigables con el medio ambiente.
+                Realizamos remodelaciones integrales con visión funcional, estética y ecológica. 
+                Proponemos soluciones como: aprovechamiento de luz natural,
+                sistemas de ahorro de energía, materiales no tóxicos, entre otros.
     
             </p>
         </div>
