@@ -1,0 +1,55 @@
+{% load static %}
+{% load bootstrap_icons %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="{% static 'img/Logo  WA.png' %}" type="image/x-icon">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>White Atelier Desing - Agendate</title>
+    <style>
+        body {
+            background-color: #223E4B;
+        }
+
+        .card {
+            background-color: #A6ACAF;
+            padding: 90px;
+            margin: 0 auto;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+{% block contenido %}
+<div class="card">
+    <h1>Formulario de Citas</h1>
+
+    <form action="{% url 'formulario_cita' %}" method="POST"> <!-- Aquí hemos modificado la acción para que apunte a la URL que manejará la creación de citas -->
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required><br><br>
+
+        <label for="fecha">Fecha de la cita:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <label for="hora">Hora de la cita:</label>
+        <input type="time" id="hora" name="hora" required><br><br>
+
+        <label for="comentarios">Comentarios adicionales:</label><br>
+        <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Enviar cita">
+    </form>
+</div>
+{% endblock %}
+</body>
+</html>

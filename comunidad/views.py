@@ -10,6 +10,9 @@ from django.contrib.auth.decorators import permission_required
 # Create your views here.
 
 #@permission_required('comunidad.add_usuario', raise_exception=True)
+
+def galeria_fotos(request):
+    return render(request, 'comunidad/galeria/fotos.html'),
 def usuario_crear(request):
     titulo="Usuario"
     accion="Agregar"

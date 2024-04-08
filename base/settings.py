@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'comunidad',
     'operaciones',
     'configuracion',
+    'galeria',
     'django_bootstrap5',#pip install django-bootstrap5
     'crispy_forms', #pip install django-crispy-forms 
     'django_bootstrap_icons',#pip install django-bootstrap-icons
@@ -74,6 +75,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'base.context_processors.sesion',
+                'django.template.context_processors.static', # Esta línea
+
             ],
         },
     },
@@ -136,6 +139,8 @@ STATIC_ROOT="/static"
 MEDIA_URL= "/media/"
 MEDIA_ROOT= os.path.join(BASE_DIR,"media/")
 
+# para que funcione el recordar contraseña
+SESSION_COOKIE_SAMESITE = 'Lax'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

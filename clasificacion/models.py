@@ -1,5 +1,5 @@
 from django.db import models
-from operaciones.models import Producto
+from operaciones.models import Producto, Foto
 # Create your models here.
 class Categoria(models.Model):
     nombre = models.CharField(max_length=10,verbose_name="Nombre" )

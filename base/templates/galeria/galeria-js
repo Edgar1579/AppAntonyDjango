@@ -1,0 +1,22 @@
+const gallery = document.querySelector('.gallery');
+const images = gallery.querySelectorAll('img');
+
+// Función para ordenar las imágenes aleatoriamente
+function shuffleImages() {
+  const shuffledImages = Array.from(images).sort(() => Math.random() - 0.5);
+  gallery.innerHTML = '';
+  shuffledImages.forEach(img => gallery.appendChild(img));
+}
+
+// Agregar evento de clic a cada imagen para ajustar el tamaño
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    img.classList.toggle('expanded');
+  });
+});
+
+// Botón para ordenar las imágenes
+const shuffleButton = document.createElement('button');
+shuffleButton.textContent = 'Ordenar Fotos';
+shuffleButton.addEventListener('click', shuffleImages);
+document.body.appendChild(shuffleButton);

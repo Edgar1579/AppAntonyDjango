@@ -32,4 +32,16 @@ class Migration(migrations.Migration):
                 ('tienda', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='comunidad.tienda', verbose_name='Tienda')),
             ],
         ),
+        
+        migrations.CreateModel(
+            name='Foto',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('imagen', models.ImageField(blank=True, default='\\operaciones\\fotos\\default-product.png', null=True, upload_to=operaciones.models.get_image_filename)),
+                ('nombre', models.CharField(max_length=45, verbose_name='Nombre')),
+                ('descripcion', models.TextField(verbose_name='Descripción')),
+                ('estado', models.BooleanField(default=True)),
+                
+            ],
+        ),
     ]

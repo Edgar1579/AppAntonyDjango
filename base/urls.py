@@ -19,6 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from base.views import principal, principal_admin, logout_user
 from django_select2 import forms as select2forms
+from . import views
+from .views import formulario_cita
+
+
 
 # para la gestion de login y contraseña
 from django.contrib.auth import views as auth_views
@@ -27,6 +31,12 @@ urlpatterns = [
     path('logout/',logout_user,name="logout"),
     path('admin/', admin.site.urls),
     path('',principal,name="index"),
+    path('', include('galeria.urls')),
+    path('cita/', views.cita_view, name='cita'),
+    path('formulario_cita/', views.formulario_cita, name='procesar_cita'),
+
+
+
 
 
     path('adm/',principal_admin,name="index-admin"),
